@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <script>
+      (function () {
+        var walkme = document.createElement("script");
+        walkme.type = "text/javascript";
+        walkme.async = true;
+        walkme.src =
+          "https://cdn.walkme.com/users/e02349106a974fd88b575b2b3d12cd5b/walkme_e02349106a974fd88b575b2b3d12cd5b_https.js";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(walkme, s);
+
+        window._walkmeConfig = { smartLoad: true };
+
+        console.log("WalkMe script inserted from index.html");
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

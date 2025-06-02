@@ -1,0 +1,5 @@
+.mainContent {
+	padding: 0 48px;
+	overflow-y: scroll;
+	max-height: calc(100vh - 64px);
+}

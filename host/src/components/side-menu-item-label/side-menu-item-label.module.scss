@@ -1,0 +1,12 @@
+@use '../layouts/vars' as *;
+
+.disabled {
+  color: $foreground-side-menu-disabled !important;
+  cursor: not-allowed;
+
+  &:hover {
+    color: $foreground-side-menu-disabled;
+  }
+}
+
+

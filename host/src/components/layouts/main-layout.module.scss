@@ -1,0 +1,124 @@
+@use '../../styles/vars' as *;
+@use './vars' as sideMenu;
+
+.container {
+  height: 100vh;
+}
+
+.sider {
+  overflow: auto !important;
+  height: 100vh !important;
+  position: sticky !important;
+  top: 0 !important;
+  left: 0 !important;
+}
+
+.header {
+  padding: 0 .5rem;
+  background-color: $bg-surface;
+  border-bottom: 1px solid $divider-color;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+:global(.ant-menu).menu {
+  background-color: sideMenu.$bg-side-menu;
+}
+
+:global(.ant-menu-inline-collapsed).menu {
+  :global(.ant-menu-item-group).menu-group :global(.ant-menu-item-group-title) {
+    opacity: 0;
+  }
+}
+
+:global(.ant-menu-item).menu-item {
+  font-size: 14px !important;
+  color: sideMenu.$foreground-side-menu-default !important;
+
+  &:hover {
+    color: sideMenu.$foreground-side-menu-hover !important;
+  }
+}
+
+:global(.ant-menu-item-group).menu-group {
+  :global(.ant-menu-item-group-title) {
+    color: sideMenu.$foreground-side-menu-group-title !important;
+  }
+}
+
+:global(.ant-menu-item-selected).menu-item {
+  color: sideMenu.$foreground-side-menu-selected !important;
+  border-left: 2px sideMenu.$foreground-side-menu-selected solid;
+  border-radius: 0 !important;
+  background-color: sideMenu.$bg-side-menu !important;
+}
+
+.bottom-section {
+  padding: 1.5em 1.5em;
+
+  :global(.ant-menu-item).menu-item {
+    font-size: 14px !important;
+    color: sideMenu.$foreground-side-menu-default !important;
+
+    border: 1px solid sideMenu.$foreground-side-menu-default;
+    border-radius: .25em !important;
+
+    &:hover {
+      color: sideMenu.$foreground-side-menu-hover !important;
+      border-color: sideMenu.$foreground-side-menu-hover !important;
+    }
+  }
+
+  :global(.ant-menu-inline-collapsed).menu {
+    :global(.ant-menu-item).menu-item {
+      border: none;
+    }
+  }
+}
+
+.logo {
+  height: 64px;
+  padding: 16px;
+  background-color: transparent;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: sideMenu.$foreground-side-menu-selected;
+
+  &:hover {
+    color: sideMenu.$foreground-side-menu-selected;
+  }
+}
+
+.logo-icon-collapsed {
+  color: sideMenu.$foreground-side-menu-selected;
+  font-size: 24px;
+  scale: 2;
+}
+
+.logo-icon-expanded {
+  color: sideMenu.$foreground-side-menu-selected;
+  font-size: 32px;
+  scale: 5;
+}
+
+.extensibility-zone-icon {
+  scale: 1.2;
+}
+
+.menu-sections-container {
+  height: 100%;
+}
+
+.divider {
+  border-color: sideMenu.$sider-divider-color !important;
+}

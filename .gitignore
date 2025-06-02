@@ -1,0 +1,31 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+app1/node_modules
+app2/node_modules
+host/node_modules
+
+# production
+app1/build
+app2/build
+host/build
+
+app1/dist
+app2/dist
+host/dist
+
+# misc
+.DS_Store
+*.pem
+.npmrc
+
+# debug
+npm-debug.log*
+
+# typescript
+*.tsbuildinfo
+
+# Module federation remote types
+app1/@mf-types/
+app2/@mf-types/
+host/@mf-types/

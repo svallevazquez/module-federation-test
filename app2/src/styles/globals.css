@@ -1,0 +1,31 @@
+:root {
+  --color-primary: #1677FF;
+
+  --background-main: #F1F1F1;
+  --background-entity: #FFFFFF;
+  --background-disabled: #F8F8F8;
+  --background-separation: #E5E5E5;
+  --background-sheet: #ECECEC;
+  --background-entity-secondary: #E9E9E9;
+
+  --foreground-main: #000000E0;
+  --foreground-disabled: #8D8D8D;
+  --foreground-error: #E13E3E;
+  --foreground-link: #1677FF;
+  --foreground-icon: #747474;
+  --foreground-light: #BCBEC0;
+
+  --font-size-sidemenu: 0.85rem;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: var(--background-main);
+}
+
+.hidden {
+  display: none;
+}
