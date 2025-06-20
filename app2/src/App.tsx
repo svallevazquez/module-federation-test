@@ -6,6 +6,7 @@ import {
 	Routes,
 } from 'react-router';
 import appRoutes from '@constants/routes/index';
+import { ConfigProvider } from 'antd';
 
 export const generateRouteElements = (routes: RouteObject[]): ReactElement[] => {
 	return routes.map((route, index) => {
@@ -45,11 +46,17 @@ export const generateRouteElements = (routes: RouteObject[]): ReactElement[] => 
 
 const App: FC = () => {
 	return (
-		<BrowserRouter>
-			<Routes>
-				{generateRouteElements(appRoutes)}
-			</Routes>
-		</BrowserRouter>
+		<ConfigProvider theme={{
+			token: {
+				colorPrimary: '#fff000',
+			}
+		}}>
+			<BrowserRouter>
+				<Routes>
+					{generateRouteElements(appRoutes)}
+				</Routes>
+			</BrowserRouter>
+		</ConfigProvider>
 	);
 };
 

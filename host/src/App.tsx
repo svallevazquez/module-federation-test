@@ -18,6 +18,7 @@ import DashboardPage from '@/pages';
 import { isApp1Active, isApp2Active } from './utils/is-remote-active';
 import ServiceDownError from './components/errors/service-down-error';
 import PageNotFoundError from './components/errors/page-not-found-error';
+import { ConfigProvider } from 'antd';
 
 export const generateRouteElements = (routes: RouteObject[]): ReactElement[] => {
 	return routes?.map((route, index) => {
@@ -57,40 +58,46 @@ export const generateRouteElements = (routes: RouteObject[]): ReactElement[] => 
 
 const App: FC = () => {
 	return (
-		<BrowserRouter>
-			<Routes>
-				<Route Component={MainLayout}>
-					<Route index Component={DashboardPage} />
-					<Route path="app1_profile">
-						<Route index element={<Navigate to="sales" replace />} />
-						{((): ReactNode => {
-							if (isApp1Active()) {
-								console.log('Into App1 - Sales route');
-								return generateRouteElements(app1AppRoutes);
-							}
+		<ConfigProvider theme={{
+			token: {
+				colorPrimary: '#fff000',
+			}
+		}}>
+			<BrowserRouter>
+				<Routes>
+					<Route Component={MainLayout}>
+						<Route index Component={DashboardPage} />
+						<Route path="app1_profile">
+							<Route index element={<Navigate to="sales" replace />} />
+							{((): ReactNode => {
+								if (isApp1Active()) {
+									console.log('Into App1 - Sales route');
+									return generateRouteElements(app1AppRoutes);
+								}
 
-							return (
-								<Route path="*" Component={ServiceDownError} />
-							);
-						})()}
-					</Route>
-					<Route path="app2_profile">
-						<Route index element={<Navigate to="vendors" replace />} />
-						{((): ReactNode => {
-							if (isApp2Active()) {
-								console.log('Into App2 - Vendors route');
-								return generateRouteElements(app2AppRoutes);
-							}
+								return (
+									<Route path="*" Component={ServiceDownError} />
+								);
+							})()}
+						</Route>
+						<Route path="app2_profile">
+							<Route index element={<Navigate to="vendors" replace />} />
+							{((): ReactNode => {
+								if (isApp2Active()) {
+									console.log('Into App2 - Vendors route');
+									return generateRouteElements(app2AppRoutes);
+								}
 
-							return (
-								<Route path="*" Component={ServiceDownError} />
-							);
-						})()}
+								return (
+									<Route path="*" Component={ServiceDownError} />
+								);
+							})()}
+						</Route>
+						<Route path="*" Component={PageNotFoundError} />
 					</Route>
-					<Route path="*" Component={PageNotFoundError} />
-				</Route>
-			</Routes>
-		</BrowserRouter>
+				</Routes>
+			</BrowserRouter>
+		</ConfigProvider>
 	);
 };
 
